@@ -9,6 +9,11 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@fabricio-191/valve-server-query@^4.1.7":
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@fabricio-191/valve-server-query/-/valve-server-query-4.1.7.tgz#c38a9d9ef9e13d698ddc767c18bc1bdbfbacc701"
+  integrity sha512-rpjALUhq3k/kaBfbIj+kkch0AiP2I9liCYUTs0UGzJtsxM1uwqLPujTjRTq5cS+cNEJXeK49H+AmB/zx5zt6iA==
+
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz#2203b118c157721addfe69d47b70465463066d78"
@@ -392,11 +397,6 @@ source-map@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
-
-source-server-query@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/source-server-query/-/source-server-query-3.0.3.tgz#92deafe93c5b686a7fe7d62c8bc368385a1f8560"
-  integrity sha512-+GnbpZ89Tc+Op18pogPNY1xBOEVSa7oOsWHQcsem/P1rEr5/p4MpKQGZ8jXtQBmcQmfhZdr95YGPAo/esqQ+og==
 
 strip-bom@^3.0.0:
   version "3.0.0"
