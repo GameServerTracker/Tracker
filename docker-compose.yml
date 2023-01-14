@@ -9,9 +9,8 @@ services:
     volumes:
       - grafana-storage:/var/lib/grafana
       - ./grafana-provisioning/:/etc/grafana/provisioning
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+    env_file:
+      - .env
   postgres:
     image: postgres
     restart: always
@@ -19,10 +18,8 @@ services:
       - gst-tracker-network
     ports:
       - '5432:5432'
-    environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=server
+    env_file:
+      - .env
     volumes:
       - gst-db:/var/lib/postgresql/data
 

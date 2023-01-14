@@ -12,6 +12,7 @@
   "dependencies": {
     "@fabricio-191/valve-server-query": "^4.1.7",
     "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
     "minecraft-server-ping": "^0.0.8",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
