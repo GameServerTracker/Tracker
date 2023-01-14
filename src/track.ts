@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import { ServerType } from './enum';
 import { Server } from '@fabricio-191/valve-server-query';
 
-const trackMinecraftServer = async (address: string): Promise<string> => {
+const trackMinecraftServer = async (address: string): Promise<any> => {
     const addressSplited: string[] = address.split(':');
     const hostname = addressSplited[0];
     const port: number = addressSplited[1] != undefined ? +addressSplited[1] : 25565;
@@ -14,13 +14,19 @@ const trackMinecraftServer = async (address: string): Promise<string> => {
         if (port < 0 || port > 65536 || isNaN(port))
             throw (`Address ${address} has a bad port !`);
         const data: IMinecraftData = await ping(hostname, port, optionPing);
-        return `${data.players.online || 0} / ${data.players.max || 0}`;
+        return {
+            playersOnline: data.players.online || 0,
+            playersMax: data.players.max || 0
+        }
     } catch (err: any) {
-        return "Offline"
+        return {
+            playersOnline: null,
+            playersMax: null
+        }
     }
 }
 
-const trackSourceServer = async (address: string): Promise<string> => {
+const trackSourceServer = async (address: string): Promise<any> => {
     const addressSplited: string[] = address.split(':');
     const hostname: string = addressSplited[0];
     const port: number = addressSplited[1] != undefined ? +addressSplited[1] : 27015;
@@ -30,23 +36,35 @@ const trackSourceServer = async (address: string): Promise<string> => {
             throw (`Address ${address} has a bad port!`);
         const server: Server = await Server({ ip: hostname, port, timeout: 3000 });
         const data: any = await server.getInfo();
-        return `${data.players.online || 0} / ${data.players.max || 0}`;
+        return {
+            playersOnline: data.players.online || 0,
+            playersMax: data.players.max || 0
+        };
     } catch (err: any) {
         console.error(err);
-        return "Offline";
+        return {
+            playersOnline: null,
+            playersMax: null
+        }
     }
 }
 
-const trackFiveMServer = async (address: string): Promise<string> => {
+const trackFiveMServer = async (address: string): Promise<any> => {
     try {
         const response: AxiosResponse = await axios.get(`http://${address}/dynamic.json`, { timeout: 2000 });
-        return `${response.data.clients} / ${response.data.sv_maxclients}`;
+        return {
+            playersOnline: response.data.clients,
+            playersMax: response.data.sv_maxclients
+        }
     } catch (err: any) {
-        return "Offline"
+        return {
+            playersOnline: null,
+            playersMax: null
+        }
     }
 }
 
-const actionTrackDict: { [id in ServerType]: (address: string) => Promise<string> } =
+const actionTrackDict: { [id in ServerType]: (address: string) => Promise<any> } =
 {
     Minecraft: trackMinecraftServer,
     Source: trackSourceServer,

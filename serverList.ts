@@ -16,11 +16,6 @@ const serverList: IServer[] = [
         name: "Hephocraft",
         type: ServerType.Minecraft,
         address: "play.hepho.fr"
-    },
-    {
-        name: "GarnetGaming.net DarkRP",
-        address: "208.103.169.33:27015",
-        type: ServerType.Source
     }
 ]
 

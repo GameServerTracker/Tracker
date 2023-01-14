@@ -12,7 +12,10 @@
   "dependencies": {
     "@fabricio-191/valve-server-query": "^4.1.7",
     "axios": "^1.2.1",
-    "minecraft-server-ping": "^0.0.8"
+    "minecraft-server-ping": "^0.0.8",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.11"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

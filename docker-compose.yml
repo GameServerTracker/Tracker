@@ -1,0 +1,34 @@
+version: '2.2'
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    networks:
+      - gst-tracker-network
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+  postgres:
+    image: postgres
+    restart: always
+    networks:
+      - gst-tracker-network
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=server
+    volumes:
+      - gst-db:/var/lib/postgresql/data
+
+networks:
+  gst-tracker-network:
+
+volumes:
+  grafana-storage:
+  gst-db:
