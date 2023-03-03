@@ -8,14 +8,19 @@ interface IServer {
 
 const serverList: IServer[] = [
     {
-        name: "PrisonRP",
+        name: "Hypixel",
         type: ServerType.Minecraft,
-        address: "play.prisonroleplay.fr:27110"
+        address: "mc.hypixel.net"
     },
     {
-        name: "Hephocraft",
-        type: ServerType.Minecraft,
-        address: "play.hepho.fr"
+        name: "VLife",
+        type: ServerType.Source,
+        address: "192.168.1.237:27015"
+    },
+    {
+        name: "GTA RP",
+        type: ServerType.FiveM,
+        address: "address.com"
     }
 ]
 
