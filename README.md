@@ -18,7 +18,7 @@ This API was inspired by the Lametric Clock app project : [GameServerTracker-Lam
 ### Requires
 - Docker & Docker-compose
 - NodeJS
-- A job scheduler like crontab (recommended)s
+- A job scheduler like crontab (recommended)
 
 ### Setup
 
